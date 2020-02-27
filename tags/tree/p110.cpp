@@ -59,4 +59,5 @@ int main()
     Solution aSolution;
     long vals[] = {1,2,2,3,3,null,null,4,4};
     cout<<aSolution.isBalanced(TreeNode::init(vals, 9));
+    cout<<"hello"<<endl;
 }

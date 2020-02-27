@@ -86,6 +86,7 @@ struct TreeNode
         }
     }
 };
+class Solution;
 
 class Solution {
 public:

@@ -13,6 +13,7 @@ class Solution
 public:
     int minDepth(TreeNode *root)
     {
+        
         int depth = 0;
         if (!root)
             return depth;
@@ -43,11 +44,4 @@ int main()
     Solution aSolution;
     TreeNode *tree = new TreeNode(1);
     cout << "MinDepth: " << aSolution.minDepth(tree) << endl;
-    int a = 1;
-    a = 1 + 1;
-    if(a>1)
-    {
-        a -= 1;
-        a += 1;
-    }
 }
