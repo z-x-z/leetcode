@@ -1,0 +1,21 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.default.cppStandard": "c++11",
+    "C_Cpp.default.cStandard": "c11",
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "php": "C:\\php\\php.exe",
+        "python": "python3",
+        "perl": "perlw",
+        "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+        "go": "go run",
+        "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc -std=c11 $fileName -o $workspaceRoot/out/runCode.out && $workspaceRoot/out/runCode.out",
+        "cpp": "cd $dir && g++ -std=c++11 $fileName -o $workspaceRoot/out/runCode.out && $workspaceRoot/out/runCode.out"
+    },
+    "files.associations": {
+        "queue": "cpp",
+        "utility": "cpp"
+    },
+}

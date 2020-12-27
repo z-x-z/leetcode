@@ -91,12 +91,53 @@ struct TreeNode
 class Solution;
 
 class Solution {
+private:
+    // 当当前栈顶的深度大于当前节点的深度时，依次将栈顶节点弹出，并且将其接入相应的父亲节点中
+    void recoverFromPreorderHelper(stack<pair<TreeNode*, int> >& treeStack, int depth)
+    {
+        TreeNode* left= NULL,* right= NULL;
+        while (!treeStack.empty()&&treeStack.top().second>depth)
+        {
+            int topDepth = treeStack.top().second;
+            right = treeStack.top().first;
+            treeStack.pop();
+            if(!treeStack.empty()&&treeStack.top().second==topDepth)
+            {
+                left = treeStack.top().first;
+                treeStack.pop();
+                treeStack.top().first->left = left;
+                treeStack.top().first->right = right;
+            }
+            else
+                treeStack.top().first->left = right;
+        }
+    }
 public:
-
+    TreeNode* recoverFromPreorder(string S)
+    {
+        stack<pair<TreeNode*, int> > treeStack;
+        int i= 0;
+        while(i<S.size())
+        {
+            // 获取节点的深度
+            int val, depth, j;
+            for (j = i; j < S.size()&&S[j]=='-'; j++) ;
+            depth = j- i;
+            i = j;
+            for (; j < S.size()&&S[j]!='-'; j++) ;
+            val = stoi(S.substr(i, j-i));
+            i = j;
+            recoverFromPreorderHelper(treeStack, depth);
+            treeStack.push(make_pair(new TreeNode(val), depth));
+        }
+        recoverFromPreorderHelper(treeStack, 0);
+        return treeStack.empty() ? NULL: treeStack.top().first;
+    }
 };
 
 int main()
 {
     Solution aSolution;
-
+    string S = "1-401--349---90--88";
+    TreeNode::levelOrder(aSolution.recoverFromPreorder(S));
 }
